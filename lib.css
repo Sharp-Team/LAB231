@@ -198,35 +198,47 @@
 * Letter spacing
 */
 
-.tracking-tight {
+.tracking-1 {
   letter-spacing: -0.05em;
 }
 
-.tracking-normal {
+.tracking-2 {
   letter-spacing: 0rem;
 }
 
-.tracking-wide {
+.tracking-3 {
+  letter-spacing: 0.025em;
+}
+
+.tracking-4 {
   letter-spacing: 0.05em;
+}
+
+.tracking-5 {
+  letter-spacing: 0.075em;
 }
 
 /**
 * Line height
 */
 
-.leading-none {
+.leading-1 {
   line-height: 1rem;
 }
 
-.leading-tight {
+.leading-2 {
+  line-height: 1.125rem;
+}
+
+.leading-3 {
   line-height: 1.25rem;
 }
 
-.leading-normal {
+.leading-4 {
   line-height: 1.5rem;
 }
 
-.leading-wide {
+.leading-5 {
   line-height: 2rem;
 }
 
@@ -352,23 +364,23 @@
 */
 
 .rounded-0 {
-  border-radius: .0125rem;
+  border-radius: 2px;
 }
 
 .rounded-1 {
-  border-radius: 1.125rem;
+  border-radius: 4px;
 }
 
-.rouned-2 {
-  border-radius: 1.5rem;
+.rounded-2 {
+  border-radius: 6px;
 }
 
 .rounded-3 {
-  border-radius: 1.75rem;
+  border-radius: 10px;
 }
 
 .rounded-4 {
-  border-radius: 2rem;
+  border-radius: 15px;
 }
 
 /**
