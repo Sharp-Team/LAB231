@@ -1,0 +1,58 @@
+body {
+    top: 0;
+    margin: 0;
+    background-image: url('../image/bg.jpg');
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+.bg-none {
+    background: none;
+}
+
+.container {
+    max-width: 1150px !important;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-blue {
+    color: #122319;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.left {
+    border-right-style: dotted;
+    border-right-color: #d2d2d2;
+    margin-right: 35px;
+}
+
+.search {
+    border-spacing: 3px;
+    border-color: gray;
+}
+
+.banner {
+    background-image: url('../image/header.jpg');
+    background-size: cover;
+    height: 115px;
+}
+
+.navigation {
+    background-image: url('../image/menu.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.footer {
+    background-image: url('../image/footer.jpg');
+    background-size: cover;
+    background-position: bottom;
+        height: 115px;
+}
+
