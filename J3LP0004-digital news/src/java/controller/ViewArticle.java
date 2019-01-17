@@ -24,6 +24,10 @@ public class ViewArticle extends HttpServlet {
 
             Article article = articles.getArticleById(id);
 
+            if (article == null) {
+                response.sendRedirect("error.jsp");
+            }
+
             ArrayList<Article> fiveRecentAticle = articles.getRecentArticle(5);
             request.setAttribute("fiveRecentAticle", fiveRecentAticle);
 

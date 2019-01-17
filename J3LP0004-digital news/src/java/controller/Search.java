@@ -20,10 +20,10 @@ public class Search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            final int ARTICLE_PAGE = 2;  
+            final int ARTICLE_PAGE = 2;            
             HttpSession session = request.getSession();
             
-            int pageCurrent  = Integer.parseInt(request.getParameter("page"));
+            int pageCurrent = Integer.parseInt(request.getParameter("page"));
             String keyword = (String) session.getAttribute("keyword");
             
             Articles articles = new Articles();
@@ -39,12 +39,18 @@ public class Search extends HttpServlet {
             int numberPage = articles.getNumberPage(ARTICLE_PAGE, keyword);
             request.setAttribute("numberPage", numberPage);
             
+            if (keyword == null || keyword.equalsIgnoreCase("") || pageCurrent > numberPage) {
+                response.sendRedirect("error.jsp");
+            }
+            
+            
+            
             request.getRequestDispatcher("/search.jsp").forward(request, response);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
