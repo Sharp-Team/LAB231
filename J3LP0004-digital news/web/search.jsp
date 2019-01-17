@@ -21,10 +21,13 @@
                 <!--Content-->
                 <div class="flex container">
                     <div class="left pa-5">
+                        <c:if test="${result == false}">
+                            <p class="not-found">Not found</p>
+                        </c:if>
                         <c:forEach var="article" items="${listSearch}">
                             <div>
                                 <p class="text-6 text-blue mt-0 font-bold">
-                                    <a class="text-blue in-underline" href="viewarticle?id=${article.id}">${article.title}</a>
+                                    <a class="text-blue" href="viewarticle?id=${article.id}">${article.title}</a>
                                 </p>
                                 <p>${article.description}</p>
                                 <p class="text-gray mt-5 items-end text-right">${mostRecentArticle.author} | ${mostRecentArticle.getDateFormat()}</p>

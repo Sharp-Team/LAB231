@@ -22,6 +22,7 @@ public class Home extends HttpServlet {
             Articles articles = new Articles();
             Article mostRecentArticle = articles.getRecentArticle(1).get(0);
             request.setAttribute("mostRecentArticle", mostRecentArticle);
+            request.setAttribute("articleCurrent", mostRecentArticle);
             
             ArrayList<Article> fiveRecentAticle = articles.getRecentArticle(5);
             request.setAttribute("fiveRecentAticle", fiveRecentAticle);

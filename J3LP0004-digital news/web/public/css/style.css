@@ -61,3 +61,7 @@ body {
     padding: 0 10px;
     border-right: solid 1px;
 }
+
+.not-found {
+    width: 834px;
+}

@@ -22,10 +22,10 @@
             <!--Content-->
             <div class="flex container">
                 <div class="left pa-5">
-                    <p class="text-6 text-blue mt-0 font-bold">${mostRecentArticle.title}</p>
-                    <img alt="title" src="./public/image/${mostRecentArticle.image}" />
-                    <p>${mostRecentArticle.content}</p>
-                    <p class="text-gray mt-5 items-end text-right">${mostRecentArticle.author} | ${mostRecentArticle.getDateFormat()}</p>
+                    <p class="text-6 text-blue mt-0 font-bold">${articleCurrent.title}</p>
+                    <img alt="title" src="./public/image/${articleCurrent.image}" />
+                    <p>${articleCurrent.content}</p>
+                    <p class="text-gray mt-5 items-end text-right">${articleCurrent.author} | ${articleCurrent.getDateFormat()}</p>
                 </div>
                 <%@include file="/components/right.jsp" %>
             </div>

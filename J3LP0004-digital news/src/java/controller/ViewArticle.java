@@ -22,19 +22,18 @@ public class ViewArticle extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             Articles articles = new Articles();
 
+            Article mostRecentArticle = articles.getRecentArticle(1).get(0);
+            request.setAttribute("mostRecentArticle", mostRecentArticle);
+            
             Article article = articles.getArticleById(id);
-
-            if (article == null) {
-                response.sendRedirect("error.jsp");
-            }
-
+            request.setAttribute("articleCurrent", article);
+            
             ArrayList<Article> fiveRecentAticle = articles.getRecentArticle(5);
             request.setAttribute("fiveRecentAticle", fiveRecentAticle);
 
-            request.setAttribute("mostRecentArticle", article);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            response.sendRedirect("error.jsp");
         }
     }
 
