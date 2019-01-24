@@ -17,21 +17,28 @@
         <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
     </head>
     <body>
-        <div class="font-sans text-blue">
-            <%@include file="/components/header.jsp" %>
-            <!--Content-->
-            <div class="flex container">
-                <div class="left pa-5">
-                    <p class="text-6 text-blue mt-0 font-bold">${articleCurrent.title}</p>
-                    <img alt="title" src="./public/image/${articleCurrent.image}" />
-                    <p>${articleCurrent.content}</p>
-                    <p class="text-gray mt-5 items-end text-right">${articleCurrent.author} | ${articleCurrent.getDateFormat()}</p>
+        <div class="wrap-all">
+            <div class="font-sans text-blue">
+                <%@include file="/components/header.jsp" %>
+                <!--Content-->
+                <div class="wrap-content">
+                    <div class="container flex">
+                        <div class="left pa-5">
+                            <p class="text-4 text-blue mt-0 font-bold">${articleCurrent.title}</p>
+                            <img
+                                alt="title"
+                                src="./public/image/${articleCurrent.image}"
+                                class="image-article"/>
+                            <p>${articleCurrent.content}</p>
+                            <p class="text-gray mt-5 items-end text-right">${articleCurrent.author} | ${articleCurrent.getDateFormat()}</p>
+                        </div>
+                        <%@include file="/components/right.jsp" %>
+                    </div>
                 </div>
-                <%@include file="/components/right.jsp" %>
+                <!--Footer-->
+                <footer class="footer">
+                </footer>
             </div>
-            <!--Footer-->
-            <footer class="footer">
-            </footer>
         </div>
     </body>
 </html>
