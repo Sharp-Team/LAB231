@@ -91,7 +91,7 @@ public class Article {
     }
 
     public String getDateFormat() {
-        return new SimpleDateFormat("MMMM dd yyy '-' HH:mmaaa").format(this.date);
+        return new SimpleDateFormat("MMMM dd yyy '-' HH:mmaaa").format(this.date).toLowerCase();
     }
 
 }

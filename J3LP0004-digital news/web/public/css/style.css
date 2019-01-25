@@ -1,6 +1,7 @@
 body {
     top: 0;
     margin: 0;
+    background-color: #e7e7e7;
 }
 
 .bg-none {
@@ -85,4 +86,8 @@ body {
 
 .not-found {
     width: 834px;
+}
+
+.clock:before {
+   content:url('../image/timeicon.gif');
 }

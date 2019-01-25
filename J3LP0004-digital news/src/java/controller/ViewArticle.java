@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modal.Articles;
+import modal.ArticleDAO;
 
 /**
  *
@@ -20,20 +20,25 @@ public class ViewArticle extends HttpServlet {
             throws ServletException, IOException {
         try {
             int id = Integer.parseInt(request.getParameter("id"));
-            Articles articles = new Articles();
-
-            Article mostRecentArticle = articles.getRecentArticle(1).get(0);
+            ArticleDAO articleDao = new ArticleDAO();
+            // get most recent article
+            Article mostRecentArticle = articleDao.getRecentArticle(1).get(0);
             request.setAttribute("mostRecentArticle", mostRecentArticle);
-            
-            Article article = articles.getArticleById(id);
-            request.setAttribute("articleCurrent", article);
-            
-            ArrayList<Article> fiveRecentAticle = articles.getRecentArticle(5);
+            ArrayList<Article> fiveRecentAticle = articleDao.getRecentArticle(5);
             request.setAttribute("fiveRecentAticle", fiveRecentAticle);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            Article article = articleDao.getArticleById(id);
+            // check article exist or not
+            if (article == null) {
+                request.setAttribute("error", "Not found article");
+                request.getRequestDispatcher("/search.jsp").forward(request, response);
+            } else {
+                request.setAttribute("articleCurrent", article);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         } catch (Exception ex) {
-            response.sendRedirect("error.jsp");
+            request.setAttribute("error", "Sorry! Error occurred");
+            request.getRequestDispatcher("/search.jsp").forward(request, response);
         }
     }
 

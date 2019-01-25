@@ -30,7 +30,9 @@
                                 src="./public/image/${articleCurrent.image}"
                                 class="image-article"/>
                             <p>${articleCurrent.content}</p>
-                            <p class="text-gray mt-5 items-end text-right">${articleCurrent.author} | ${articleCurrent.getDateFormat()}</p>
+                            <p class="text-gray mt-5 items-end text-right clock">
+                                By ${articleCurrent.author} | ${articleCurrent.getDateFormat()}
+                            </p>
                         </div>
                         <%@include file="/components/right.jsp" %>
                     </div>

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Thaycacac
  */
-public class Articles {
+public class ArticleDAO {
 
     public ArrayList<Article> getRecentArticle(int numberArticle) throws Exception {
         Connection con = null;

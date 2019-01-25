@@ -21,7 +21,7 @@
                 <!--Content-->
                 <div class="flex container">
                     <div class="left pa-5">
-                        <p style="color: red; height: 50vh;">Sorry! Error occurred</p>
+                        <p style="color: red; height: 50vh;">${error}</p>
                     </div>
                 </div>
                 <!--Footer-->
