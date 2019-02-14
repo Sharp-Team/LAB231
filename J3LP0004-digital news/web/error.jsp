@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="./public/css/lib.css" />
+        <link rel="stylesheet" type="text/css" href="./public/css/error-page.css" />
         <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
         <title>Error</title>
     </head>
@@ -21,7 +21,7 @@
                 <!--Content-->
                 <div class="flex container">
                     <div class="left pa-5">
-                        <p style="color: red; height: 50vh;">${error}</p>
+                        <p class="error">${error}</p>
                     </div>
                 </div>
                 <!--Footer-->

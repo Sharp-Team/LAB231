@@ -40,6 +40,9 @@ public class Search extends HttpServlet {
             // get number page to paging
             int numberPage = articles.getNumberPage(ARTICLE_PAGE, keyword);
             request.setAttribute("numberPage", numberPage);
+            
+            // get page current
+            request.setAttribute("pageCurrent", pageCurrent);
 
             if (listSearch.size() == 0) {
                 request.setAttribute("error", "Not found");

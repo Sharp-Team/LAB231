@@ -23,8 +23,6 @@ public class DBContext {
 //
 //Tomcat
 //        
-//
-//
 //public class DBContext {
 //
 //    InitialContext initCxt;
