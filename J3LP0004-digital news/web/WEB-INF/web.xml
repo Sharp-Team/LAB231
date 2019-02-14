@@ -46,7 +46,6 @@
         </session-timeout>
     </session-config>
 </web-app>
-
 <!--Tomcat
 <Context path="/J3.L.P0013">
     <Environment name="severName" type="java.lang.String" value="DESKTOP-7IGOK4E"/>
@@ -56,5 +55,3 @@
     <Environment name="dbName" type="java.lang.String" value="J3.L.P0013"/>
     <Environment name="imgFolder" type="java.lang.String" value="image/"/>
 </Context>-->
-
-
