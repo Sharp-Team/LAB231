@@ -21,7 +21,7 @@ public class ArticleDAO {
         String sql = "SELECT TOP (?) * "
                 + "FROM Article \n"
                 + "ORDER BY Date DESC";
-        
+
         ArrayList<Article> listArticle = new ArrayList<>();
         try {
             DBContext db = new DBContext();
@@ -92,7 +92,7 @@ public class ArticleDAO {
                 + "SELECT ROW_NUMBER()\n"
                 + "OVER(ORDER BY id) as Number,\n"
                 + "* FROM Article \n"
-                + "WHERE content LIKE '%?%' OR title LIKE '%?%'\n"
+                + "WHERE content LIKE ? OR title LIKE ? \n"
                 + ") as DataSearch where Number between ? and ?";
         try {
             DBContext db = new DBContext();
@@ -102,11 +102,12 @@ public class ArticleDAO {
             page 1 => 1,2...
             page 2 => 3,4...
              */
-            int articleFrom = pageCurrent * numberArticleInPage - 1;
+            int articleFrom = (pageCurrent - 1) * numberArticleInPage + 1;
             int articleTo = articleFrom + numberArticleInPage - 1;
 
             con = db.getConnection();
             ps = con.prepareStatement(sql);
+            keyword = "%" + keyword + "%";
             ps.setString(1, keyword);
             ps.setString(2, keyword);
             ps.setInt(3, articleFrom);
@@ -140,11 +141,12 @@ public class ArticleDAO {
         ArrayList<Article> listArticle = new ArrayList<>();
         String sql = "SELECT COUNT(id) FROM Article \n"
                 + "WHERE content\n"
-                + "LIKE '%?%' OR title LIKE '%?%'";
+                + "LIKE ? OR title LIKE ?";
         try {
             DBContext db = new DBContext();
             con = db.getConnection();
             ps = con.prepareStatement(sql);
+            keyword = "%" + keyword + "%";
             ps.setString(1, keyword);
             ps.setString(2, keyword);
             rs = ps.executeQuery();
