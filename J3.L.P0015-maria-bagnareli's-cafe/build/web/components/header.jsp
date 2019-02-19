@@ -1,14 +1,26 @@
-<%-- 
-    Document   : header
-    Created on : Jan 17, 2019, 10:37:02 AM
-    Author     : Thaycacac
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <body>
         <!--Header-->
-        <div class="header"></div>
+        <div class="header text-white">
+            <div class="top bg-orange pt-2 pl-3">
+                <h1 class="header-big mb-0">Maria Bagnarelli's Cafe</h1>
+                <p class="header-small pb-3 mb-0 text-5 mt-1 ">Wellcome to my website</p>
+            </div>
+            <div class="navigation bg-red pl-3 font-sans">
+                <ul class="list-reset flex ma-0 py-2">
+                    <li>
+                        <a class="text-white in-underline mr-2 font-bold" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="text-white in-underline mr-2" href="/">About my Cakes</a>
+                    </li>
+                    <li>
+                        <a class="text-white in-underline mr-2" href="/">Find Maria's Cafe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>

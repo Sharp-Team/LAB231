@@ -1,9 +1,3 @@
-<%-- 
-    Document   : footer.jsp
-    Created on : Feb 19, 2019, 1:23:57 PM
-    Author     : Thaycacac
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div class="footer"></div>
+        <div class="footer pa-3">
+            <a href="/" class="text-black">Created with SimpleSite</a>
+        </div>
     </body>
 </html>

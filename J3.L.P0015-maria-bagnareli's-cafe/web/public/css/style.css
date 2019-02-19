@@ -1,11 +1,33 @@
+.bg-orange {
+    background: #f68c1f;
+}
+
+.bg-red {
+    background: #890400;
+}
+
 body {
     top: 0;
     margin: 0;
     background-color: #e7e7e7;
 }
 
+.wrap-all {
+    max-width: 768px;
+    margin: 0 auto;
+    background: white;
+}
+
+.header-big {
+    font-size: 35px;
+}
+
 .bg-none {
     background: none;
+}
+
+.text-black {
+    color: black;
 }
 
 .container {
@@ -16,80 +38,40 @@ body {
     color: white;
 }
 
-.text-blue {
-    color: #122319;
+.wrap-box {
+    display: grid;
 }
 
-.text-gray {
-    color: gray;
+.wrap-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
-.left {
-    border-right-style: dotted;
-    border-right-color: #d2d2d2;
-    width: 510px;
+.text-share {
+    font-size: 13px;
+}
+
+.image-share {
+    margin-right: 4px;
 }
 
 .right {
-    width: 165px;
+    width: 218px;
 }
 
-.search {
-    border-spacing: 3px;
-    border-color: gray;
-    width: 140px;
+.left {
+    width: 550px;
+    font-size: 14px;
 }
 
-.pre-header {
-    text-align: center;
-}
-
-.img-preheader {
-    margin-bottom: -5px;
-}
-
-.wrap-content {
-    background-image: url('../image/bg.jpg');
+body {
+    background-image: url('../image/1.jpg');
     background-repeat-x: no-repeat;
-    background-position: center;
+    background-size: cover;
 }
 
-.image-article {
-    max-width: 500px;
-}
-
-.banner {
-    background-image: url('../image/header.jpg');
-    height: 80px;
-    background-repeat-x: no-repeat;
-    background-position: center;
-}
-
-.navigation {
-    background-image: url('../image/menu.jpg');
-    background-position: bottom;
-    background-position: center;
-    background-repeat-x: no-repeat;
-}
-
-.footer {
-    background-image: url('../image/footer.jpg');
-    background-position: center;
-    background-repeat-x: no-repeat;
-    height: 78px;
-}
-
-.page-search {
-    padding: 0 10px;
-    border-right: solid 1px;
-}
-
-.not-found {
-    width: 834px;
-}
-
-.clock:before {
-   content:url('../image/timeicon.gif');
+.split-bottom {
+    border-bottom: dotted gray;
 }
 
 /**
