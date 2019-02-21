@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,15 +20,15 @@
                             <div class="flex font-sans split-bottom pb-5">
                                 <div>
                                     <p class="text-4 font-bold font-serif left-contact">Address and contact:</p>
-                                    <p>Tel: 123456</p>
-                                    <p>Email: thaycacac@gmail.com</p>
+                                    <p>${contactPhone.key}: ${contactPhone.value}</p>
+                                    <p>${contactEmail.key}: ${contactEmail.value}</p>
                                 </div>
                                 <div>
                                     <p class="text-4 font-bold font-serif">Opening hour:</p>
                                     <ul class="list-reset">
-                                        <li>Monday: Close</li>
-                                        <li>Tueday - Friday: 10:00 - 20:00</li>
-                                        <li>Saturday and sunday: 11:00 - 21:00</li>
+                                        <c:forEach var="work" items="${listWork}">
+                                            <li>${work.key}: ${work.value}</li>
+                                            </c:forEach>
                                     </ul>
                                 </div>
                             </div>

@@ -19,36 +19,32 @@
                     <div class="left">
                         <div class="px-3">
                             <div class="split-bottom flex pt-5 pb-5">
-                                <img class="image-top" src="./public/image/2.jpg">
+                                <img class="image-top" src="./public/image/${articleIntroduction.image}">
                                 <div class="content">
-                                    <p class="text-5 my-0">Maria's Cosy Cafe</p>
-                                    <p class="font-sans mt-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+                                    <p class="text-5 my-0">${articleIntroduction.title}</p>
+                                    <p class="font-sans mt-1">${articleIntroduction.content}</p>
                                 </div>
                             </div>
                             <div class="split-bottom pt-6 flex pb-5">
                                 <div class="mr-3">
-                                    <img class="image-bottom" src="./public/image/3.jpg">
+                                    <img class="image-bottom" src="./public/image/${articleLeft.image}">
                                     <div class="content">
-                                        <p class="text-5 my-0">Maria's Cosy Cafe</p>
-                                        <p class="font-sans mt-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                            Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+                                        <p class="text-5 my-0">${articleLeft.title}</p>
+                                        <p class="font-sans mt-1">${articleLeft.content}</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <img class="image-bottom" src="./public/image/4.jpg">
+                                    <img class="image-bottom" src="./public/image/${articleRight.image}">
                                     <div class="content">
-                                        <p class="text-5 my-0">Maria's Cosy Cafe</p>
-                                        <p class="font-sans mt-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                            Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica</p>
+                                        <p class="text-5 my-0">${articleRight.title}</p>
+                                        <p class="font-sans mt-1">${articleRight.content}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="split-bottom pb-5">
                                 <p class="text-5">Visit my cafe</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                                <p>Gammel Torv, Copenhagen</p>
-                                <p>Phone: 12 1234 1234</p>
+                                <p>${contactAddress.value}</p>
+                                <p>${contactPhone.key}: ${contactPhone.value}</p>
                             </div>
                             <div class="mt-6">
                                 <p>Kind regards</p>
