@@ -13,23 +13,24 @@ import java.util.ArrayList;
  * @author Thaycacac
  */
 public class ArticleDAO {
-
-    public ArrayList<Article> getRecentArticle(int numberArticle) {
+    
+    public ArrayList<Article> getRecentArticle(int numberArticle) throws Exception {
+        DBContext db = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql = "SELECT TOP (?) * "
                 + "FROM Article \n"
                 + "ORDER BY Date DESC";
-
+        
         ArrayList<Article> listArticle = new ArrayList<>();
         try {
-            DBContext db = new DBContext();
+            db = new DBContext();
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, numberArticle);
             rs = ps.executeQuery();
-
+            
             while (rs.next()) {
                 int id = rs.getInt(1);
                 String title = rs.getString(2);
@@ -40,30 +41,30 @@ public class ArticleDAO {
                 Article article = new Article(id, title, image, content, date, author);
                 listArticle.add(article);
             }
-            rs.close();
-            ps.close();
-            con.close();
             return listArticle;
-
+            
         } catch (Exception ex) {
             ex.printStackTrace();
+            throw ex;
+        } finally {
+            db.closeConnection(con, ps, rs);
         }
-        return null;
     }
-
-    public Article getArticleById(int id) {
+    
+    public Article getArticleById(int id) throws Exception {
+        DBContext db = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql = "SELECT title, image, content, date, author FROM Article WHERE id = ?";
-
+        
         try {
-            DBContext db = new DBContext();
+            db = new DBContext();
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
-
+            
             while (rs.next()) {
                 String title = rs.getString(1);
                 String image = rs.getString(2);
@@ -72,22 +73,23 @@ public class ArticleDAO {
                 String author = rs.getString(5);
                 return new Article(id, title, image, content, date, author);
             }
-            rs.close();
-            ps.close();
-            con.close();
-
+            
         } catch (Exception ex) {
             ex.printStackTrace();
+            throw ex;
+        } finally {
+            db.closeConnection(con, ps, rs);
         }
         return null;
     }
-
-    public ArrayList<Article> getListAticleSearch(int numberArticleInPage, int pageCurrent, String keyword) {
+    
+    public ArrayList<Article> getListAticleSearch(int numberArticleInPage, int pageCurrent, String keyword) throws Exception {
+        DBContext db = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         ArrayList<Article> listArticle = new ArrayList<>();
-
+        
         String sql = "SELECT * FROM (\n"
                 + "SELECT ROW_NUMBER()\n"
                 + "OVER(ORDER BY id) as Number,\n"
@@ -95,16 +97,15 @@ public class ArticleDAO {
                 + "WHERE content LIKE ? OR title LIKE ? \n"
                 + ") as DataSearch where Number between ? and ?";
         try {
-            DBContext db = new DBContext();
-
+            db = new DBContext();
             /*
             example: 2 article in one page
             page 1 => 1,2...
             page 2 => 3,4...
              */
-            int articleFrom = (pageCurrent - 1) * numberArticleInPage + 1;
+            int articleFrom = pageCurrent * numberArticleInPage - 1;
             int articleTo = articleFrom + numberArticleInPage - 1;
-
+            
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             keyword = "%" + keyword + "%";
@@ -113,7 +114,7 @@ public class ArticleDAO {
             ps.setInt(3, articleFrom);
             ps.setInt(4, articleTo);
             rs = ps.executeQuery();
-
+            
             while (rs.next()) {
                 int id = rs.getInt(2);
                 String title = rs.getString(3);
@@ -124,17 +125,17 @@ public class ArticleDAO {
                 Article article = new Article(id, title, image, content, date, author);
                 listArticle.add(article);
             }
-            rs.close();
-            ps.close();
-            con.close();
             return listArticle;
         } catch (Exception ex) {
             ex.printStackTrace();
+            throw ex;
+        } finally {
+            db.closeConnection(con, ps, rs);
         }
-        return null;
     }
-
-    public int getNumberPage(int numberArticleInPage, String keyword) {
+    
+    public int getNumberPage(int numberArticleInPage, String keyword) throws Exception {
+        DBContext db = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -143,24 +144,23 @@ public class ArticleDAO {
                 + "WHERE content\n"
                 + "LIKE ? OR title LIKE ?";
         try {
-            DBContext db = new DBContext();
+            db = new DBContext();
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             keyword = "%" + keyword + "%";
             ps.setString(1, keyword);
             ps.setString(2, keyword);
             rs = ps.executeQuery();
-
+            
             while (rs.next()) {
                 int numberArticle = rs.getInt(1);
-                // round up the page number
                 return (numberArticle + (numberArticle % numberArticleInPage)) / numberArticleInPage;
             }
-            rs.close();
-            ps.close();
-            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
+            throw ex;
+        } finally {
+            db.closeConnection(con, ps, rs);
         }
         return -1;
     }
