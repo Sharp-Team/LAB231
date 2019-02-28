@@ -1,5 +1,9 @@
 .image-about {
-    float: right;
-    width: 300px;
+    width: 220px;
+    height: 160px;
     border-radius: 10px;
+}
+
+.page-current {
+    color: red;
 }

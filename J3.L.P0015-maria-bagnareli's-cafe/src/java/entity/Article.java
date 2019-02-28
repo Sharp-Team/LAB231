@@ -14,6 +14,7 @@ public class Article {
     private String content;
     private String image;
     private Date date;
+    private String description;
 
     public Article() {
     }
@@ -25,6 +26,11 @@ public class Article {
         this.content = content;
         this.image = image;
         this.date = date;
+        if (content.length() <= 100) {
+            this.description = content + "...";
+        } else {
+            this.description = content.substring(0, 100) + "...";
+        }
     }
 
     public int getId() {
@@ -73,6 +79,14 @@ public class Article {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

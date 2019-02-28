@@ -37,10 +37,12 @@ public class Home extends HttpServlet {
             request.setAttribute("contactAddress", contactAddress);
             request.setAttribute("contactPhone", contactPhone);
 
+            request.setAttribute("boldHome", "font-bold");
+
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } catch (Exception e) {
             request.setAttribute("Error", "Error");
-            request.getRequestDispatcher("/about.jsp").forward(request, response);
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 

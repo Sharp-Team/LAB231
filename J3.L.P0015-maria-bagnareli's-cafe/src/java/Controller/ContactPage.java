@@ -29,10 +29,12 @@ public class ContactPage extends HttpServlet {
             request.setAttribute("contactEmail", contactEmail);
             request.setAttribute("listWork", listWork);
 
+            request.setAttribute("boldContact", "font-bold");
+
             request.getRequestDispatcher("/contact.jsp").forward(request, response);
         } catch (Exception e) {
             request.setAttribute("Error", "Error");
-            request.getRequestDispatcher("/about.jsp").forward(request, response);
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 

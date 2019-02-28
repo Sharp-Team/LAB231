@@ -11,13 +11,13 @@
             <div class="navigation bg-red pl-3 font-sans">
                 <ul class="list-reset flex ma-0 py-2">
                     <li>
-                        <a class="text-white in-underline mr-2 font-bold" href="/">Home</a>
+                        <a class="text-white in-underline mr-2 ${boldHome}" href="Home">Home</a>
+                    <li>
+
+                        <a class="text-white in-underline mr-2 ${boldAbout}" href="About?page=1">About my Cakes</a>
                     </li>
                     <li>
-                        <a class="text-white in-underline mr-2" href="/">About my Cakes</a>
-                    </li>
-                    <li>
-                        <a class="text-white in-underline mr-2" href="/">Find Maria's Cafe</a>
+                        <a class="text-white in-underline mr-2 ${boldContact}" href="Contact">Find Maria's Cafe</a>
                     </li>
                 </ul>
             </div>
