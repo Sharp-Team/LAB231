@@ -17,8 +17,7 @@ import modal.ArticleDAO;
 public class Search extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             final int ARTICLE_PAGE = 2;
             HttpSession session = request.getSession();
@@ -40,7 +39,7 @@ public class Search extends HttpServlet {
             // get number page to paging
             int numberPage = articles.getNumberPage(ARTICLE_PAGE, keyword);
             request.setAttribute("numberPage", numberPage);
-            
+
             // get page current
             request.setAttribute("pageCurrent", pageCurrent);
 
@@ -59,18 +58,23 @@ public class Search extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String keyword = request.getParameter("keyword");
+        try {
+            String keyword = request.getParameter("keyword");
 
-        // check keyword empty
-        if (keyword == null || keyword.isEmpty()) {
-            // refresh page 
-            String servletPrev = request.getHeader("referer");
-            String nameServletPrev = servletPrev.substring(servletPrev.lastIndexOf("/") + 1);
-            response.sendRedirect(nameServletPrev);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("keyword", keyword);
-            response.sendRedirect("Search?page=1");
+            // check keyword empty
+            if (keyword == null || keyword.isEmpty()) {
+                // refresh page 
+                String servletPrev = request.getHeader("referer");
+                String nameServletPrev = servletPrev.substring(servletPrev.lastIndexOf("/") + 1);
+                response.sendRedirect(nameServletPrev);
+            } else {
+                HttpSession session = request.getSession();
+                session.setAttribute("keyword", keyword);
+                response.sendRedirect("Search?page=1");
+            }
+        } catch (Exception e) {
+            request.setAttribute("error", "Sorry! Error occurred");
+            request.getRequestDispatcher("/search.jsp").forward(request, response);
         }
     }
 }

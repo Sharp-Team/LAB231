@@ -34,6 +34,10 @@ public class DBContext {
             con.close();
         }
     }
+
+    public String getResource() {
+        return "./public/image/";
+    }
 }
 
 /**

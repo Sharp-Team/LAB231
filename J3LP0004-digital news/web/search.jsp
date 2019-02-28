@@ -32,7 +32,7 @@
                                     </p>
                                     <img
                                         alt="title"
-                                        src="./public/image/${article.image}"
+                                        src="${article.image}"
                                         class="image-article"/>
                                     <p>${article.description}</p>
                                     <p class="text-gray mt-5 items-end text-right">${mostRecentArticle.author} | ${mostRecentArticle.getDateFormat()}</p>
@@ -42,7 +42,7 @@
                                 <c:forEach var="page" begin="1" end="${numberPage}">
                                     
                                     <c:if test="${pageCurrent == page}">
-                                        <a href="Search?page=${page}" class="page-current mx-2 ">${page}</a>
+                                        <p class="page-current mx-2 my-0">${page}</p>
                                     </c:if>
                                     <c:if test="${pageCurrent != page}">
                                         <a href="Search?page=${page}" class="mx-2">${page}</a>

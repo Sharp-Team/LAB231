@@ -26,7 +26,7 @@
                             <p class="text-4 text-blue mt-0 font-bold">${articleCurrent.title}</p>
                             <img
                                 alt="title"
-                                src="./public/image/${articleCurrent.image}"
+                                src="${articleCurrent.image}"
                                 class="image-article"/>
                             <p>${articleCurrent.content}</p>
                             <p class="text-gray mt-5 items-end text-right clock">
