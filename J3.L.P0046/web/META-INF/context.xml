@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context path="/J3.L.P0046">
-  <Environment name="serverName" type="java.lang.String" value="HARRYTRAN\HARRYTRAN"/>
-  <Environment name="port" type="java.lang.String" value="1432"/>
-  <Environment name="username" type="java.lang.String" value="sa"/>
-  <Environment name="password" type="java.lang.String" value="123456"/>
-  <Environment name="dbName" type="java.lang.String" value="Northwind"/>
-</Context>
